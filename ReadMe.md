@@ -40,24 +40,23 @@ To get started with the Government Training Centres project, follow these steps:
 Example Request Body:
 ```json
 {
-    "studentCapacity": 20,
-    "coursesOffered": [
-      "Btech",
-      "Mtech"
-    ],
-    "createdOn": "2024-04-28T21:05:54.300998800",
-    "contactEmail": "kaneWilliamson@gmail.com",
-    "contactPhone": "9560374444",
-    "address": {
-      "addressId": 4,
-      "city": "welligton",
-      "state": "new zealand",
-      "pincode": "110020",
-      "detailedAddress": "HNO 17/t-9"
-    },
-    "centerName": "center-3",
-    "centerCode": 1001
-  }
+  "studentCapacity": 15,
+  "coursesOffered": [
+    "BA", "MA", "BCA"
+  ],
+  "createdOn": "29-4-2024",
+  "contactEmail": "joeroot66@gmail.com",
+  "contactNumber": "9494741957",
+  "address": {
+    "addressId": 101,
+    "city": "headingley",
+    "state": "england",
+    "pincode": "30001",
+    "detailedAddress": "headingley, leeds, england"
+  },
+  "centerCode": 11,
+  "centerName": "center-10"
+}
 ```
 
 
@@ -71,18 +70,24 @@ Example Response:
 ```json
 [
   {
-    "id": 1,
-    "name": "Government Training Centre A",
-    "address": "123 Main Street",
-    "email": "trainingcentreA@gmail.com",
-    "contactNumber": "1234567890"
-  },
-  {
-    "id": 2,
-    "name": "Government Training Centre B",
-    "address": "456 Elm Street",
-    "email": "trainingcentreB@gmail.com",
-    "contactNumber": "9876543210"
+    "studentCapacity": 15,
+    "coursesOffered": [
+      "BA",
+      "MA",
+      "BCA"
+    ],
+    "createdOn": "2024-04-29T23:11:34.160832400",
+    "contactEmail": "joeroot66@gmail.com",
+    "contactNumber": "9494741957",
+    "address": {
+      "addressId": 101,
+      "city": "headingley",
+      "state": "england",
+      "pincode": "30001",
+      "detailedAddress": "headingley, leeds, england"
+    },
+    "centerName": "center-10",
+    "centerCode": 253
   }
 ]
 ```
