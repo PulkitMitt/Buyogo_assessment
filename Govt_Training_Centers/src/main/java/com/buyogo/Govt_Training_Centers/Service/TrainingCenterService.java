@@ -1,5 +1,7 @@
 package com.buyogo.Govt_Training_Centers.Service;
 
+import com.buyogo.Govt_Training_Centers.Exceptions.ContactNoValidationException;
+import com.buyogo.Govt_Training_Centers.Exceptions.EmailValidationException;
 import com.buyogo.Govt_Training_Centers.Model.Address;
 import com.buyogo.Govt_Training_Centers.Model.TrainingCenter;
 import com.buyogo.Govt_Training_Centers.Repository.IAddressRepo;
@@ -20,6 +22,7 @@ public class TrainingCenterService {
     ITrainingCenterRepo iTrainingCenterRepo;
 
     public TrainingCenter SignUpTrainingCenter(TrainingCenter trainingCenter) {
+
         Address address = trainingCenter.getAddress();
         addressService.saveAddress(address);
 
@@ -30,5 +33,39 @@ public class TrainingCenterService {
 
     public List<TrainingCenter> getAllTrainingCenters() {
         return iTrainingCenterRepo.findAll();
+    }
+
+    public void validateEmail(String email) {
+        // Perform email validation logic
+        if (!isValidEmail(email)) {
+            try{
+                throw new EmailValidationException("Invalid email address: " + email);
+            }
+            catch (EmailValidationException e){
+                System.out.println(e);
+            }
+        }
+    }
+    private boolean isValidEmail(String email) {
+        // Your email validation logic here
+        // You can use regex, third-party libraries, or other methods to validate email
+        return email.matches(".*@gmail\\.com$");
+    }
+
+    public void validateContactNo(String contactNo) {
+        // Perform contactNo validation logic
+        if (!isValidContactNo(contactNo)) {
+            try{
+                throw new ContactNoValidationException("contact number should be of 10 digits");
+            }
+            catch (ContactNoValidationException e){
+                System.out.println(e);
+            }
+        }
+    }
+    private boolean isValidContactNo(String contactNo) {
+        // Your contact number validation logic here
+        // You can use regex, third-party libraries, or other methods to validate contact number
+        return contactNo.matches("^\\d{10}$");
     }
 }

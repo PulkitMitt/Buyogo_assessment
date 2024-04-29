@@ -28,10 +28,11 @@ public class TrainingCenter {
     private String createdOn ;
 
     @Pattern(regexp = ".*@gmail\\.com$")
+    @Email(message = "Invalid email address")
     private String contactEmail;
 
     @Pattern(regexp = "^\\d{10}$")
-    private String contactPhone;
+    private String contactNumber;
 
     @OneToOne
     @JoinColumn(name = "fk_address_id")
@@ -51,7 +52,7 @@ public class TrainingCenter {
                 ", coursesOffered=" + coursesOffered +
                 ", createdOn=" + createdOn +
                 ", contactEmail='" + contactEmail + '\'' +
-                ", contactPhone='" + contactPhone + '\'' +
+                ", contactPhone='" + contactNumber + '\'' +
                 ", address=" + address +
                 '}';
     }
